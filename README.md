@@ -46,8 +46,9 @@ Działa tak:
 Ustaw w GitHub (`Settings -> Secrets and variables -> Actions -> Repository secrets`):
 
 - `VPS_SSH_KEY` - prywatny klucz SSH (format PEM) dla użytkownika `debian`
-- `GHCR_USERNAME` - użytkownik GitHub mający dostęp do pakietów GHCR
 - `GHCR_PAT` - GitHub PAT z zakresem co najmniej `read:packages`
+
+Workflow używa automatycznie właściciela repo jako loginu do GHCR.
 
 Parametry VPS są ustawione bezpośrednio w workflow:
 

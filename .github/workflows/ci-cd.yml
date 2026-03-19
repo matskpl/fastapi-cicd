@@ -85,6 +85,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Validate required secrets
+        run: |
+          if [ -z "${{ secrets.GHCR_PAT }}" ]; then
+            echo "Missing required secret: GHCR_PAT"
+            exit 1
+          fi
+
       - name: Upload docker-compose file to VPS
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -108,7 +115,7 @@ jobs:
             cd "${{ env.VPS_APP_DIR }}"
             echo "GHCR_IMAGE=${{ needs.build-and-push.outputs.image_name }}" > .env
             echo "IMAGE_TAG=${{ needs.build-and-push.outputs.image_tag }}" >> .env
-            echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ secrets.GHCR_USERNAME }}" --password-stdin
+            echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ github.repository_owner }}" --password-stdin
             docker compose pull
             docker compose up -d
             docker image prune -f
