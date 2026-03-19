@@ -73,7 +73,7 @@ sudo systemctl enable --now docker
 ## Co robi deploy
 
 Podczas `push` na `main` workflow:
-1. kopiuje `docker-compose.yml` do `/opt/fastapi-cicd`,
+1. kopiuje `docker-compose.yml` do `/home/debian/fastapi-cicd`,
 2. tworzy tam plik `.env` z obrazem i tagiem,
 3. loguje się do GHCR,
 4. wykonuje `docker compose pull` i `docker compose up -d`.
