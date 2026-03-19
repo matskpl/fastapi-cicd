@@ -1,0 +1,9 @@
+services:
+  api:
+    image: ${GHCR_IMAGE}:${IMAGE_TAG}
+    container_name: fastapi-cicd-api
+    restart: unless-stopped
+    ports:
+      - "8049:8000"
+    environment:
+      APP_ENV: production
