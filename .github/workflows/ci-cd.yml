@@ -81,6 +81,9 @@ jobs:
       VPS_SSH_PORT: 22
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Upload docker-compose file to VPS
         uses: appleboy/scp-action@v0.1.7
         with:
