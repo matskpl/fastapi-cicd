@@ -15,3 +15,7 @@ def test_health() -> None:
     response = client.get("/health")
     assert response.status_code == 200
     assert response.json() == {"status": "ok"}
+def test_add_negative_numbers():
+    response = client.get("/add/-2/1")
+    assert response.status_code == 200
+    assert response.json() == {"result": -2}

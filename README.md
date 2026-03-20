@@ -1,4 +1,4 @@
-# FastAPI CI/CD + GHCR +  VPS
+# FastAPI CI/CD + GHCR +  VPS 
 
 Najprostszy serwis FastAPI z automatyzacją:
 - testów i budowy w GitHub Actions,
