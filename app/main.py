@@ -11,3 +11,8 @@ def read_root() -> dict[str, str]:
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "ok"}
+
+
+@app.get("/add/{a}/{b}")
+def add(a: int, b: int):
+    return {"result": a + b}
